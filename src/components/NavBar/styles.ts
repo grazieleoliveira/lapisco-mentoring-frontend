@@ -43,7 +43,12 @@ export const ImgContainer = styled.div`
   padding-right: 2rem;
   display: flex;
 `;
-export const MobileSwitchContainer = styled.div``;
+export const MobileNavContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  margin-left: auto;
+`;
 export const DesktopSwitchContainer = styled.div`
   margin-left: auto;
   padding-right: 2rem;

@@ -14,12 +14,12 @@ export const MobileNav = ({ toggleTheme }: IMobileNav) => {
   };
   return (
     <>
-      <S.MobileSwitchContainer>
+      <S.MobileNavContainer>
         <ThemeSwitch checked={checked} onChange={onChangeSwitch} />
-      </S.MobileSwitchContainer>
-      <S.HamburguerContainer>
-        <GiHamburgerMenu color={theme.text} size="1.6rem" />
-      </S.HamburguerContainer>
+        <S.HamburguerContainer>
+          <GiHamburgerMenu color={theme.text} size="1.6rem" />
+        </S.HamburguerContainer>
+      </S.MobileNavContainer>
     </>
   );
 };
