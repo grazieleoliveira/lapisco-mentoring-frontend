@@ -28,6 +28,7 @@ export const ListItem = styled.li`
 
 export const Clickable = styled(Link)`
   text-decoration: none;
+  font-size: 1rem;
   color: ${({ theme }) => theme.text};
   display: block;
   width: 100%;
