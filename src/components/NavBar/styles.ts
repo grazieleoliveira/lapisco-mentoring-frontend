@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+
+export const HamburguerContainer = styled.div`
+  margin-left: auto;
+  padding-right: 2rem;
+`;
+
 export const NavContainer = styled.nav`
   height: 60px;
   width: 100%;
@@ -7,13 +13,10 @@ export const NavContainer = styled.nav`
   align-items: center;
   position: relative;
   padding: 0.5rem 0rem;
-  background-color: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
-  box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
 `;
 
-export const NavMenu = styled.div`
-`;
+export const NavMenu = styled.div``;
 
 export const List = styled.ul`
   display: flex;
@@ -27,16 +30,17 @@ export const ListItem = styled.li`
 
 export const Clickable = styled.a`
   text-decoration: none;
+  color: ${({theme}) => theme.text};
   display: block;
   width: 100%;
 `;
 
 export const NetflixImage = styled.img`
-    max-width: 100px;
+  max-width: 100px;
 `;
 
 export const ImgContainer = styled.div`
-    padding-left: 2rem;
-    display: flex;
-
+  padding-left: 2rem;
+  padding-right: 2rem;
+  display: flex;
 `;
