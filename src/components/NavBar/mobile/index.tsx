@@ -1,9 +1,10 @@
 import * as S from "./styles";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useTheme } from "styled-components";
-import { IMobileNav } from "./types";
-import { ThemeSwitch } from "./ThemeSwitch";
-import { useToggleSwitch } from "./useToggleSwitch";
+import { ThemeSwitch } from "../ThemeSwitch";
+import { IMobileNav } from "../types";
+import { useToggleSwitch } from "../useToggleSwitch";
+
 
 export const MobileNav = ({ toggleTheme }: IMobileNav) => {
   const theme = useTheme();

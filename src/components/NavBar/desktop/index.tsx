@@ -1,7 +1,8 @@
+import { ThemeSwitch } from "../ThemeSwitch";
+import { IDesktopNav } from "../types";
+import { useToggleSwitch } from "../useToggleSwitch";
 import * as S from "./styles";
-import { IDesktopNav } from "./types";
-import { ThemeSwitch } from "./ThemeSwitch";
-import { useToggleSwitch } from "./useToggleSwitch";
+
 
 export const DesktopNav = ({ toggleTheme }: IDesktopNav) => {
   const { checked, toggleSwitch } = useToggleSwitch();
