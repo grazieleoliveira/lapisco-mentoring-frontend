@@ -13,7 +13,6 @@ export const NavContainer = styled.nav`
 `;
 
 export const NavMenu = styled.div`
-  margin-left: auto;
 `;
 
 export const List = styled.ul`
