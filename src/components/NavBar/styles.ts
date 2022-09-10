@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const HamburguerContainer = styled.div`
@@ -27,7 +28,7 @@ export const ListItem = styled.li`
   margin: 0 1rem;
 `;
 
-export const Clickable = styled.a`
+export const Clickable = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.text};
   display: block;

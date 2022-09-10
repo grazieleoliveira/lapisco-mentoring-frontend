@@ -15,13 +15,19 @@ export const DesktopNav = ({ toggleTheme }: IDesktopNav) => {
       <S.NavMenu>
         <S.List>
           <S.ListItem>
-            <S.Clickable href="/home">Home</S.Clickable>
+            <S.Clickable to="/">Home</S.Clickable>
           </S.ListItem>
           <S.ListItem>
-            <S.Clickable href="/about">About</S.Clickable>
+            <S.Clickable to="/new">New</S.Clickable>
           </S.ListItem>
           <S.ListItem>
-            <S.Clickable href="/contact">Contact</S.Clickable>
+            <S.Clickable to="/movies">Movies</S.Clickable>
+          </S.ListItem>
+          <S.ListItem>
+            <S.Clickable to="/series">Series</S.Clickable>
+          </S.ListItem>
+          <S.ListItem>
+            <S.Clickable to="/cartoons">Cartoon</S.Clickable>
           </S.ListItem>
         </S.List>
       </S.NavMenu>
