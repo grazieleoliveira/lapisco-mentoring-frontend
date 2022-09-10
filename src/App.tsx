@@ -1,4 +1,5 @@
 import { ThemeProvider } from "styled-components";
+import { NavBar } from "./components/NavBar";
 import { useToggleTheme } from "./hooks/useToggleTheme";
 import { GlobalStyle } from "./theme/globalStyle";
 import { darkTheme, lightTheme } from "./theme/theme";
@@ -10,6 +11,7 @@ function App() {
   return (
     <ThemeProvider theme={currentTheme}>
       <GlobalStyle />
+      <NavBar/>
       <div>
         <button onClick={toggleTheme}>sdfsddfas</button>
       </div>
