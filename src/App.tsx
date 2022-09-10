@@ -11,7 +11,7 @@ function App() {
   return (
     <ThemeProvider theme={currentTheme}>
       <GlobalStyle />
-      <NavBar/>
+      <NavBar toggleTheme={toggleTheme}/>
       <div>
         <button onClick={toggleTheme}>sdfsddfas</button>
       </div>

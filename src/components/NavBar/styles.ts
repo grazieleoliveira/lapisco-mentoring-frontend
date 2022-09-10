@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const HamburguerContainer = styled.div`
   margin-left: auto;
   padding-right: 2rem;
@@ -30,7 +29,7 @@ export const ListItem = styled.li`
 
 export const Clickable = styled.a`
   text-decoration: none;
-  color: ${({theme}) => theme.text};
+  color: ${({ theme }) => theme.text};
   display: block;
   width: 100%;
 `;
@@ -43,4 +42,9 @@ export const ImgContainer = styled.div`
   padding-left: 2rem;
   padding-right: 2rem;
   display: flex;
+`;
+export const MobileSwitchContainer = styled.div``;
+export const DesktopSwitchContainer = styled.div`
+  margin-left: auto;
+  padding-right: 2rem;
 `;

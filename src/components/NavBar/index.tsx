@@ -2,35 +2,21 @@ import * as S from "./styles";
 import netflixImg from "../../assets/netflix.png";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { deviceSizes } from "../../constants/devices";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { useTheme } from "styled-components";
+import { MobileNav } from "./MobileNav";
+import { INavbar } from "./types";
+import { DesktopNav } from "./DesktopNav";
 
-export const NavBar = () => {
+export const NavBar = ({ toggleTheme }: INavbar) => {
   const { windowWidth } = useWindowSize();
-  const theme = useTheme();
   return (
     <S.NavContainer>
       <S.ImgContainer>
         <S.NetflixImage src={netflixImg} />
       </S.ImgContainer>
       {windowWidth < deviceSizes.tablet ? (
-        <S.HamburguerContainer>
-          <GiHamburgerMenu color={theme.text} size="1.6rem" />
-        </S.HamburguerContainer>
+        <MobileNav toggleTheme={toggleTheme} />
       ) : (
-        <S.NavMenu>
-          <S.List>
-            <S.ListItem>
-              <S.Clickable href="/home">Home</S.Clickable>
-            </S.ListItem>
-            <S.ListItem>
-              <S.Clickable href="/about">About</S.Clickable>
-            </S.ListItem>
-            <S.ListItem>
-              <S.Clickable href="/contact">Contact</S.Clickable>
-            </S.ListItem>
-          </S.List>
-        </S.NavMenu>
+        <DesktopNav toggleTheme={toggleTheme} />
       )}
     </S.NavContainer>
   );
