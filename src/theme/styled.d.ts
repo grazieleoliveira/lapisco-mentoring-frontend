@@ -1,10 +1,8 @@
 // import original module declarations
-import 'styled-components';
+import "styled-components";
+import { lightTheme } from "./theme";
 
-// and extend them!
-declare module 'styled-components' {
-  export interface DefaultTheme {
-    body: string;
-    text: string
-  }
-}F
+type CustomTheme = typeof lightTheme;
+declare module "styled-components" {
+  export interface DefaultTheme extends CustomTheme {}
+}
