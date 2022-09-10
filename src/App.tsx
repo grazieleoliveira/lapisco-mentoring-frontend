@@ -1,18 +1,17 @@
-import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
+import { useToggleTheme } from "./hooks/useToggleTheme";
 import { GlobalStyle } from "./theme/globalStyle";
-import { lightTheme } from "./theme/theme";
+import { darkTheme, lightTheme } from "./theme/theme";
 
-const Root = styled.div`
-  background-color: red;
-`;
 
 function App() {
+  const { theme, toggleTheme } = useToggleTheme();
+  const currentTheme = theme === "light" ? lightTheme : darkTheme;
   return (
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={currentTheme}>
       <GlobalStyle />
       <div>
-        <a>sddsffsd</a>
+        <button onClick={toggleTheme}>sdfsddfas</button>
       </div>
     </ThemeProvider>
   );
