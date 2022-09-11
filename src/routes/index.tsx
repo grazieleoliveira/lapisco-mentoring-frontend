@@ -7,19 +7,19 @@ const AppRouter = () => {
       <Route path="/" element={<HomePage />} />
       <Route
         path="/new"
-        element={<div style={{ flex: 1, height: "80vh" }}></div>}
+        element={<div style={{ flex: 1, height: "85vh" }}></div>}
       />
       <Route
         path="/movies"
-        element={<div style={{ flex: 1, height: "80vh" }}></div>}
+        element={<div style={{ flex: 1, height: "85vh" }}></div>}
       />
       <Route
         path="/series"
-        element={<div style={{ flex: 1, height: "80vh" }}></div>}
+        element={<div style={{ flex: 1, height: "85vh" }}></div>}
       />
       <Route
         path="/cartoons"
-        element={<div style={{ flex: 1, height: "80vh" }}></div>}
+        element={<div style={{ flex: 1, height: "85vh" }}></div>}
       />
     </Routes>
   );

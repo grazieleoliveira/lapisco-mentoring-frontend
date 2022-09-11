@@ -133,6 +133,6 @@ export const HomePage = () => {
     </S.Container>
   ) : (
     //add loader
-    <div style={{ flex: 1, height: "80vh" }}></div>
+    <div style={{ flex: 1, height: "85vh" }}></div>
   );
 };
