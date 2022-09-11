@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { deviceSizes } from "../../constants/devices";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { SwiperSlide as SwiSlide } from "swiper/react";
 
 export const Container = styled.div`
   margin: 2rem;
@@ -22,6 +23,10 @@ export const PopularMovieContainer = styled.div`
     rgba(0, 0, 0, 0.65) 100%
   ); /* W3C */
   user-select: none;
+  margin-bottom: 2.8rem;
+  @media (max-width: ${deviceSizes.tablet}px) {
+    margin-bottom: 1.4rem;
+  }
 `;
 
 export const PopularMovieImg = styled.img`
@@ -81,7 +86,7 @@ export const ArrowLeftContainer = styled.a`
   height: fit-content;
   margin: auto;
   padding-left: 1rem;
-  z-index: 2;
+  z-index: 1;
   cursor: pointer;
 `;
 export const ArrowRightContainer = styled.a`
@@ -93,7 +98,7 @@ export const ArrowRightContainer = styled.a`
   height: fit-content;
   margin: auto;
   padding-right: 1rem;
-  z-index: 2;
+  z-index: 1;
   cursor: pointer;
 `;
 
@@ -126,11 +131,17 @@ export const PopularMovieRow = styled.div`
 `;
 
 export const PopularRowHeader = styled.text`
-  display: flex;
-  padding-top: 32px;
+  position: absolute;
+  margin: auto;
   font-size: 2.8rem;
   font-weight: bold;
   @media (max-width: ${deviceSizes.tablet}px) {
     font-size: 1.4rem;
   }
+`;
+
+export const SwiperSlide = styled(SwiSlide)`
+  display: flex;
+  justify-content: center;
+  height: auto;
 `;

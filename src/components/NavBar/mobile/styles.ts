@@ -6,6 +6,7 @@ export const MobileNavContainer = styled.div`
   gap: 1rem;
   flex-direction: row;
   margin-left: auto;
+  z-index: 2;
 `;
 
 export const HamburguerContainer = styled.div`
