@@ -3,7 +3,6 @@ import { deviceSizes } from "../../constants/devices";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 export const PopularMovieContainer = styled.div`
-
   position: relative;
   overflow: hidden;
   margin: 2rem;
@@ -15,6 +14,7 @@ export const PopularMovieContainer = styled.div`
     rgba(0, 0, 0, 0) 0%,
     rgba(0, 0, 0, 0.65) 100%
   ); /* W3C */
+  user-select: none;
 `;
 
 export const PopularMovieImg = styled.img`
