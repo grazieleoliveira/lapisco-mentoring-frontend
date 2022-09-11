@@ -9,6 +9,8 @@ export const lightTheme = {
     mustard: "#ffc207",
     darkBlue: "#4200f8",
     boxShadow: "rgba(0, 0, 0, 0.1)",
+    gradeBg: "#fffae8",
+    grey: "#8d8d91",
   },
   fonts,
 };
@@ -19,6 +21,8 @@ export const darkTheme = {
     mustard: "#ffc207",
     darkBlue: "#003df8",
     boxShadow: "rgba(145, 145, 145, 0.1)",
+    gradeBg: "#000517",
+    grey: "#8d8d91",
   },
   fonts,
 };

@@ -2,10 +2,17 @@ import styled from "styled-components";
 import { deviceSizes } from "../../constants/devices";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
+export const Container = styled.div`
+  margin: 2rem;
+
+  @media (max-width: ${deviceSizes.tablet}px) {
+    margin: 1rem;
+  }
+`;
+
 export const PopularMovieContainer = styled.div`
   position: relative;
   overflow: hidden;
-  margin: 2rem;
   border-radius: 3rem;
   display: flex;
   box-shadow: 0px 0px 40px 15px ${({ theme }) => theme.colors.boxShadow};
@@ -107,4 +114,9 @@ export const ArrowRight = styled(IoIosArrowForward)`
     border-radius: 0.3rem;
     padding: 0.2rem;
   }
+`;
+
+export const PopularMovieRow = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
