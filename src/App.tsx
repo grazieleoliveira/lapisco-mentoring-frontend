@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { Footer } from "./components/Footer";
@@ -11,6 +12,14 @@ import { darkTheme, lightTheme } from "./theme/theme";
 
 function App() {
   const { theme, toggleTheme } = useToggleTheme();
+  const [showFooter, setShowFooter] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowFooter(true);
+    }, 1000);
+  }, []);
+
   const currentTheme = theme === "light" ? lightTheme : darkTheme;
   return (
     <BrowserRouter>
@@ -19,7 +28,7 @@ function App() {
         <ModalProvider>
           <NavBar toggleTheme={toggleTheme} />
           <AppRouter />
-          <Footer />
+          {showFooter && <Footer />}
           <GlobalModal />
         </ModalProvider>
       </ThemeProvider>
