@@ -1,6 +1,7 @@
 export interface ITrendingMovies {
   adult: boolean;
   backdrop_path: string;
+  name: string;
   id: number;
   title: string;
   original_language: string;
