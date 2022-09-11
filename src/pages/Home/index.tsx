@@ -117,7 +117,7 @@ export const HomePage = () => {
               }}
             >
               <MovieCard
-              // fazer o tratamento para tipo: MOVIE e TV dentro do modal
+                // fazer o tratamento para tipo: MOVIE e TV dentro do modal
                 onClick={() => openContentModalById(String(slide.id))}
                 grade={String(slide.vote_average)}
                 title={slide.title ? slide.title : slide.name}
@@ -132,6 +132,7 @@ export const HomePage = () => {
       </S.PopularMovieRow>
     </S.Container>
   ) : (
-    <></>
+    //add loader
+    <div style={{ flex: 1, height: "80vh" }}></div>
   );
 };
