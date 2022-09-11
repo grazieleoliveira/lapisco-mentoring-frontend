@@ -11,6 +11,7 @@ export const lightTheme = {
     boxShadow: "rgba(0, 0, 0, 0.1)",
     gradeBg: "#fffae8",
     grey: "#8d8d91",
+    grade_text: "#121620",
   },
   fonts,
 };
@@ -23,6 +24,7 @@ export const darkTheme = {
     boxShadow: "rgba(145, 145, 145, 0.1)",
     gradeBg: "#000517",
     grey: "#8d8d91",
+    grade_text: "#ffc207",
   },
   fonts,
 };

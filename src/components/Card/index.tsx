@@ -19,7 +19,7 @@ export const MovieCard = ({
       <S.GradeAndDateRow>
         <S.GradeContainer>
           <S.StarIcon />
-          <S.Grade>{grade}</S.Grade>
+          <S.Grade>{Math.floor(Number(grade) * 100) / 100}</S.Grade>
         </S.GradeContainer>
         <S.ReleaseDate>{releaseDate}</S.ReleaseDate>
       </S.GradeAndDateRow>
