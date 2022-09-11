@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
 import { MovieCard } from "../../components/Card";
 import { TMDB_IMG_BASE_URL } from "../../constants/apiUrls";
@@ -12,7 +12,23 @@ import { ITrendingMovies } from "../../types";
 import * as S from "./styles";
 
 import "swiper/css";
-import "swiper/css/navigation";
+
+const SwiperButtonNext = ({ children }: any) => {
+  const swiper = useSwiper();
+  return (
+    <button
+      style={{
+        top: 0,
+        right: 0,
+        position: "absolute",
+        backgroundColor: "red",
+      }}
+      onClick={() => swiper.slideNext()}
+    >
+      {children}
+    </button>
+  );
+};
 
 export const HomePage = () => {
   const { data: trending } = useQuery<ITrendingMovies[]>(["trending"], () =>
@@ -20,10 +36,19 @@ export const HomePage = () => {
   );
   const { windowWidth } = useWindowSize();
   const isDesktop = windowWidth > deviceSizes.tablet;
-
   const [current, setCurrent] = useState(0);
   const TOP3 = trending?.slice(0, 3);
   const TOP30 = trending?.slice(3, 33);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 4000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   const prevSlide = () => {
     setCurrent((prev) => (prev === 0 ? 2 : prev - 1));
@@ -64,6 +89,7 @@ export const HomePage = () => {
           </>
         ))}
       </S.PopularMovieContainer>
+      <S.PopularRowHeader>Popular on Netflix</S.PopularRowHeader>
       <S.PopularMovieRow>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -73,25 +99,37 @@ export const HomePage = () => {
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
           style={{
+            display: "flex",
+            position: "relative",
             padding: 32,
           }}
+          draggable
           loop
           breakpoints={{
             [deviceSizes.mobileS]: {
               slidesPerView: 2.2,
+              slidesPerGroup: 2,
               spaceBetween: 10,
             },
             [deviceSizes.tablet]: {
               slidesPerView: 3.2,
+              slidesPerGroup: 3,
+              spaceBetween: 40,
             },
             [deviceSizes.laptop]: {
               slidesPerView: 5.2,
+              slidesPerGroup: 5,
+              spaceBetween: 40,
             },
             [deviceSizes.laptopL]: {
               slidesPerView: 6.2,
+              slidesPerGroup: 6,
+              spaceBetween: 40,
             },
           }}
         >
+          <SwiperButtonNext>sdsdf</SwiperButtonNext>
+
           {TOP30?.map((slide, index) => (
             <SwiperSlide
               style={{

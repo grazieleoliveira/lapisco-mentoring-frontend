@@ -39,13 +39,17 @@ export const PopularMovieImg = styled.img`
   width: 100%;
   transform: scale(1);
   opacity: 1;
-  max-height: 28rem;
+  height: 28rem;
   object-fit: cover;
   border-radius: 3rem;
   z-index: -1;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   animation-name: change-color;
   animation-duration: 1.2s;
+
+  @media (max-width: ${deviceSizes.tablet}px) {
+    height: 10rem;
+  }
 `;
 
 export const PopularMovieName = styled.h1`
@@ -119,4 +123,14 @@ export const ArrowRight = styled(IoIosArrowForward)`
 export const PopularMovieRow = styled.div`
   display: flex;
   flex-direction: row;
+`;
+
+export const PopularRowHeader = styled.text`
+  display: flex;
+  padding-top: 32px;
+  font-size: 2.8rem;
+  font-weight: bold;
+  @media (max-width: ${deviceSizes.tablet}px) {
+    font-size: 1.4rem;
+  }
 `;
