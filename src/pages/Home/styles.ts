@@ -44,7 +44,7 @@ export const PopularMovieImg = styled.img`
   width: 100%;
   transform: scale(1);
   opacity: 1;
-  height: 28rem;
+  height: 30rem;
   object-fit: cover;
   border-radius: 3rem;
   z-index: -1;

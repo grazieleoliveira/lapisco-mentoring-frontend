@@ -1,5 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import { Footer } from "./components/Footer";
 import { GlobalModal } from "./components/Modal";
 import { NavBar } from "./components/NavBar";
 import { useToggleTheme } from "./hooks/useToggleTheme";
@@ -18,6 +19,7 @@ function App() {
         <ModalProvider>
           <NavBar toggleTheme={toggleTheme} />
           <AppRouter />
+          <Footer />
           <GlobalModal />
         </ModalProvider>
       </ThemeProvider>
