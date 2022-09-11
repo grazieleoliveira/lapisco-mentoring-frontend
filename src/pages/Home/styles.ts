@@ -3,6 +3,7 @@ import { deviceSizes } from "../../constants/devices";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 export const PopularMovieContainer = styled.div`
+
   position: relative;
   overflow: hidden;
   margin: 2rem;
@@ -17,12 +18,27 @@ export const PopularMovieContainer = styled.div`
 `;
 
 export const PopularMovieImg = styled.img`
+  @keyframes change-color {
+    0% {
+      transform: scale(1.5);
+      opacity: 0.3;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
   width: 100%;
+  transform: scale(1);
+  opacity: 1;
   max-height: 36rem;
   object-fit: cover;
   border-radius: 3rem;
   z-index: -1;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  animation-name: change-color;
+  animation-duration: 1.2s;
 `;
 
 export const PopularMovieName = styled.h1`
@@ -55,6 +71,7 @@ export const ArrowLeftContainer = styled.a`
   margin: auto;
   padding-left: 1rem;
   z-index: 2;
+  cursor: pointer;
 `;
 export const ArrowRightContainer = styled.a`
   text-align: right;
@@ -66,6 +83,7 @@ export const ArrowRightContainer = styled.a`
   margin: auto;
   padding-right: 1rem;
   z-index: 2;
+  cursor: pointer;
 `;
 
 export const ArrowLeft = styled(IoIosArrowBack)`
