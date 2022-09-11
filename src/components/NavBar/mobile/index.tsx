@@ -20,13 +20,13 @@ export const MobileNav = ({ toggleTheme }: IMobileNav) => {
       <S.MobileNavContainer>
         <ThemeSwitch checked={checked} onChange={onChangeSwitch} />
         <S.HamburguerContainer onClick={() => setShowSidebar(!showSidebar)}>
-          <GiHamburgerMenu color={theme.text} size="1.6rem" />
+          <GiHamburgerMenu color={theme.colors.text} size="1.6rem" />
         </S.HamburguerContainer>
         {showSidebar && (
           <S.BurguerMenu isVisible={showSidebar}>
             <S.CloseIconContainer>
               <S.CloseIcon
-                color={theme.text}
+                color={theme.colors.text}
                 size={"2rem"}
                 onClick={() => setShowSidebar(!showSidebar)}
               />

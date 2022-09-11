@@ -2,17 +2,17 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const NavContainer = styled.nav`
-  height: 60px;
+  height: 3.6rem;
   width: 100%;
   display: flex;
   align-items: center;
   position: relative;
   padding: 0.5rem 0rem;
-  color: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const NetflixImage = styled.img`
-  max-width: 100px;
+  max-width: 6rem;
 `;
 
 export const ImgContainer = styled.div`
@@ -29,7 +29,7 @@ export const ListItem = styled.li`
 export const Clickable = styled(Link)`
   text-decoration: none;
   font-size: 1rem;
-  color: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.colors.text};
   display: block;
   width: 100%;
 `;

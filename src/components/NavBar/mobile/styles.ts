@@ -23,7 +23,7 @@ export const BurguerMenu = styled.section<{ isVisible: boolean }>`
   bottom: 0;
   display: flex;
   flex-direction: column;
-  background: ${({ theme }) => theme.body};
+  background: ${({ theme }) => theme.colors.body};
 `;
 
 export const CloseIcon = styled(IoMdClose)``;
@@ -34,7 +34,7 @@ export const ItemsContainer = styled.ul`
   justify-content: center;
   flex-direction: column;
   height: 100vh;
-  gap: 1.6rem
+  gap: 1.6rem;
 `;
 
 export const CloseIconContainer = styled.div`

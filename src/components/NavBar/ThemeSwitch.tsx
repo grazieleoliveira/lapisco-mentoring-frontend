@@ -7,10 +7,10 @@ export const ThemeSwitch = ({ ...switchProps }: ReactSwitchProps) => {
   return (
     <Switch
       {...switchProps}
-      offHandleColor={theme.text}
-      onHandleColor={theme.text}
-      onColor={theme.text}
-      offColor={theme.text}
+      offHandleColor={theme.colors.text}
+      onHandleColor={theme.colors.text}
+      onColor={theme.colors.text}
+      offColor={theme.colors.text}
       checkedHandleIcon={
         <MdNightsStay
           size={"1.5rem"}
@@ -20,7 +20,7 @@ export const ThemeSwitch = ({ ...switchProps }: ReactSwitchProps) => {
             display: "flex",
             padding: "0.1rem",
           }}
-          color={theme.darkBlue}
+          color={theme.colors.darkBlue}
         />
       }
       uncheckedHandleIcon={
@@ -32,7 +32,7 @@ export const ThemeSwitch = ({ ...switchProps }: ReactSwitchProps) => {
             display: "flex",
             padding: "0.1rem",
           }}
-          color={theme.mustard}
+          color={theme.colors.mustard}
         />
       }
       checkedIcon={false}

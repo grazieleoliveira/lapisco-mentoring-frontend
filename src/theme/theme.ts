@@ -1,12 +1,23 @@
+const fonts = {
+  josefinSans: "Josefin Sans",
+};
+
 export const lightTheme = {
-  body: "#f1f1f1",
-  text: "#121620",
-  mustard: "#ffc207",
-  darkBlue: "#4200f8",
+  colors: {
+    body: "#f1f1f1",
+    text: "#121620",
+    mustard: "#ffc207",
+    darkBlue: "#4200f8",
+  },
+  fonts,
 };
 export const darkTheme = {
-  body: "#121620",
-  text: "#f1f1f1",
-  mustard: "#ffc207",
-  darkBlue: "#003df8",
+  colors: {
+    body: "#121620",
+    text: "#f1f1f1",
+    mustard: "#ffc207",
+    darkBlue: "#003df8",
+  },
+  fonts,
+
 };

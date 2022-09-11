@@ -10,8 +10,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${({ theme }) => theme.body};
-    color: ${({ theme }) => theme.text};
+    background: ${({ theme }) => theme.colors.body};
+    color: ${({ theme }) => theme.colors.text};
     margin: 0;
     padding: 0;
     font-family: "Karla", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
