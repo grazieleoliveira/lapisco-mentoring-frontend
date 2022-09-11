@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
+import { A11y, Navigation, Pagination, Scrollbar } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 import { MovieCard } from "../../components/Card";
 import { TMDB_IMG_BASE_URL } from "../../constants/apiUrls";
 import { deviceSizes } from "../../constants/devices";
@@ -7,6 +10,9 @@ import { useWindowSize } from "../../hooks/useWindowSize";
 import NetflixService from "../../services/movieService";
 import { ITrendingMovies } from "../../types";
 import * as S from "./styles";
+
+import "swiper/css";
+import "swiper/css/navigation";
 
 export const HomePage = () => {
   const { data: trending } = useQuery<ITrendingMovies[]>(["trending"], () =>
@@ -17,6 +23,7 @@ export const HomePage = () => {
 
   const [current, setCurrent] = useState(0);
   const TOP3 = trending?.slice(0, 3);
+  const TOP30 = trending?.slice(3, 33);
 
   const prevSlide = () => {
     setCurrent((prev) => (prev === 0 ? 2 : prev - 1));
@@ -58,12 +65,52 @@ export const HomePage = () => {
         ))}
       </S.PopularMovieContainer>
       <S.PopularMovieRow>
-        <MovieCard
-          grade={String(trending[4].vote_average)}
-          title={trending[4].title ? trending[4].title : trending[4].name}
-          releaseDate={trending[4].release_date}
-          poster={`${TMDB_IMG_BASE_URL}/${trending[4].backdrop_path}`}
-        />
+        <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          slidesPerView={"auto"}
+          spaceBetween={40}
+          navigation
+          pagination={{ clickable: true }}
+          scrollbar={{ draggable: true }}
+          style={{
+            padding: 32,
+          }}
+          loop
+          breakpoints={{
+            [deviceSizes.mobileS]: {
+              slidesPerView: 2.2,
+              spaceBetween: 10,
+            },
+            [deviceSizes.tablet]: {
+              slidesPerView: 3.2,
+            },
+            [deviceSizes.laptop]: {
+              slidesPerView: 5.2,
+            },
+            [deviceSizes.laptopL]: {
+              slidesPerView: 6.2,
+            },
+          }}
+        >
+          {TOP30?.map((slide, index) => (
+            <SwiperSlide
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                height: "auto",
+              }}
+            >
+              <MovieCard
+                grade={String(slide.vote_average)}
+                title={slide.title ? slide.title : slide.name}
+                releaseDate={
+                  slide.release_date ? slide.release_date : slide.first_air_date
+                }
+                poster={`${TMDB_IMG_BASE_URL}/${slide.backdrop_path}`}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </S.PopularMovieRow>
     </S.Container>
   ) : (

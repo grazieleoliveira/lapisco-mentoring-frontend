@@ -6,15 +6,20 @@ export const MovieCardContainer = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  max-width: 14rem;
-  height: 21rem;
+  height: auto;
   background-color: ${({ theme }) => theme.colors.body};
   box-shadow: 0px 0px 10px 4px ${({ theme }) => theme.colors.boxShadow};
   padding: 0.7rem;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.02);
+  }
+
   border-radius: 1.2rem;
   @media (max-width: ${deviceSizes.tablet}px) {
-    max-width: 7rem;
-    height: 10.5rem;
+    height: auto;
     padding: 0.35rem;
     border-radius: 0.6rem;
   }
@@ -86,7 +91,7 @@ export const Title = styled.text`
   font-size: 1.6rem;
   font-weight: bold;
   height: 100%;
-  flex-direction: column-reverse;
+  flex-direction: column;
   @media (max-width: ${deviceSizes.tablet}px) {
     font-size: 0.8rem;
   }
