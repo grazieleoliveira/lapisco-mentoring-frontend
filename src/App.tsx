@@ -6,10 +6,12 @@ import { GlobalModal } from "./components/Modal";
 import { NavBar } from "./components/NavBar";
 import { useToggleTheme } from "./hooks/useToggleTheme";
 import { ModalProvider } from "./providers/ModalProvider";
-import { AppRouter } from "./routes";
 import { GlobalStyle } from "./theme/globalStyle";
 import { darkTheme, lightTheme } from "./theme/theme";
 import netflixImg from "./assets/netflix.png";
+import React from "react";
+
+const Core = React.lazy(() => import("./routes"));
 
 export const StartAnimationContainer = styled.div`
   display: flex;
@@ -26,15 +28,19 @@ export const NetflixImage = styled.img`
       transform: scale(0.5);
       opacity: 0.3;
     }
-    100% {
+    75% {
       transform: scale(1.5);
       opacity: 1;
+    }
+    100% {
+      transform: scale(0);
+      opacity: 0;
     }
   }
   width: 12rem;
   animation-fill-mode: forwards;
   animation-name: show-image;
-  animation-duration: 1.4s;
+  animation-duration: 2.4s;
 `;
 
 function App() {
@@ -49,7 +55,7 @@ function App() {
 
     setTimeout(() => {
       setShowContent(true);
-    }, 1600);
+    }, 2400);
   }, []);
 
   const currentTheme = theme === "light" ? lightTheme : darkTheme;
@@ -61,7 +67,7 @@ function App() {
           {showContent ? (
             <>
               <NavBar toggleTheme={toggleTheme} />
-              {<AppRouter />}
+              {<Core />}
               {showFooter && <Footer />}
               <GlobalModal />
             </>
