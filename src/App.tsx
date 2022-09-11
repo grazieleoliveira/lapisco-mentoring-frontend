@@ -1,7 +1,9 @@
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import { GlobalModal } from "./components/Modal";
 import { NavBar } from "./components/NavBar";
 import { useToggleTheme } from "./hooks/useToggleTheme";
+import { ModalProvider } from "./providers/ModalProvider";
 import { AppRouter } from "./routes";
 import { GlobalStyle } from "./theme/globalStyle";
 import { darkTheme, lightTheme } from "./theme/theme";
@@ -13,8 +15,11 @@ function App() {
     <BrowserRouter>
       <ThemeProvider theme={currentTheme}>
         <GlobalStyle />
-        <NavBar toggleTheme={toggleTheme} />
-        <AppRouter />
+        <ModalProvider>
+          <NavBar toggleTheme={toggleTheme} />
+          <AppRouter />
+          <GlobalModal />
+        </ModalProvider>
       </ThemeProvider>
     </BrowserRouter>
   );

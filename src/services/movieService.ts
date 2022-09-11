@@ -14,4 +14,32 @@ export default class NetflixService {
       method: "GET",
     });
   }
+
+  static getMovieInfoById(id: string) {
+    return request({
+      url: `/movie/${id}?language=en-US`,
+      method: "GET",
+    });
+  }
+
+  static getTVShowInfoById(id: string) {
+    return request({
+      url: `/tv/${id}?&language=en-US`,
+      method: "GET",
+    });
+  }
+
+  static getTVShowCreditsById(id: string) {
+    return request({
+      url: `/tv/${id}/credits?language=en-US`,
+      method: "GET",
+    });
+  }
+
+  static getMovieCreditsById(id: string) {
+    return request({
+      url: `/movie/${id}/credits?language=en-US`,
+      method: "GET",
+    });
+  }
 }

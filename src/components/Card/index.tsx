@@ -5,6 +5,7 @@ interface IMovieCard {
   grade: string;
   title: string;
   poster: string;
+  onClick: () => void;
 }
 
 export const MovieCard = ({
@@ -12,9 +13,10 @@ export const MovieCard = ({
   grade,
   title,
   poster,
+  onClick,
 }: IMovieCard) => {
   return (
-    <S.MovieCardContainer>
+    <S.MovieCardContainer onClick={onClick}>
       <S.Poster src={poster} />
       <S.GradeAndDateRow>
         <S.GradeContainer>

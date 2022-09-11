@@ -8,11 +8,15 @@ import { SwiperHeader } from "../../components/Swiper/SwiperHeader";
 import { TMDB_IMG_BASE_URL } from "../../constants/apiUrls";
 import { deviceSizes } from "../../constants/devices";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import { useGlobalModal } from "../../providers/useGlobalModal";
 import NetflixService from "../../services/movieService";
 import { ITrendingMovies } from "../../types";
 import * as S from "./styles";
 
 export const HomePage = () => {
+  const [current, setCurrent] = useState(0);
+  const { openContentModalById } = useGlobalModal();
+
   const { data: trending } = useQuery<ITrendingMovies[]>(["trending"], () =>
     NetflixService.getTrending()
   );
@@ -21,8 +25,9 @@ export const HomePage = () => {
     () => NetflixService.getTrendingAsianMovies()
   );
   const { windowWidth } = useWindowSize();
+
   const isDesktop = windowWidth > deviceSizes.tablet;
-  const [current, setCurrent] = useState(0);
+
   const TOP3_TRENDING = trending?.slice(0, 3);
   const TOP30_TRENDING = trending?.slice(3, 33);
   const TOP20_TRENDING_ASIAN_MOVIES = trendingAsianMovies?.slice(0, 20);
@@ -88,6 +93,7 @@ export const HomePage = () => {
               }}
             >
               <MovieCard
+                onClick={() => openContentModalById(String(slide.id))}
                 grade={String(slide.vote_average)}
                 title={slide.title ? slide.title : slide.name}
                 releaseDate={
@@ -111,6 +117,8 @@ export const HomePage = () => {
               }}
             >
               <MovieCard
+              // fazer o tratamento para tipo: MOVIE e TV dentro do modal
+                onClick={() => openContentModalById(String(slide.id))}
                 grade={String(slide.vote_average)}
                 title={slide.title ? slide.title : slide.name}
                 releaseDate={
