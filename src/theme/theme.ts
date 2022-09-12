@@ -12,6 +12,7 @@ export const lightTheme = {
     gradeBg: "#fffae8",
     grey: "#8d8d91",
     grade_text: "#121620",
+    modalBg: "rgba(145, 145, 145, 0.75)",
   },
   fonts,
 };
@@ -25,6 +26,7 @@ export const darkTheme = {
     gradeBg: "#000517",
     grey: "#8d8d91",
     grade_text: "#ffc207",
+    modalBg: "rgba(42, 42, 42, 0.75)",
   },
   fonts,
 };
