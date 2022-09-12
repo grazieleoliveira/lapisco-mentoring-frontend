@@ -48,10 +48,11 @@ export const GlobalModal = () => {
         },
         content: {
           position: "absolute",
-          top: `${isDesktop ? "10rem" : "10rem"}`,
-          left: `${isDesktop ? "10rem" : "2rem"}`,
-          right: `${isDesktop ? "10rem" : "2rem"}`,
-          bottom: `${isDesktop ? "10rem" : "10rem"}`,
+          //todo: ajeitar a responsividade disso aq
+          top: `${isDesktop ? "4em" : "2em"}`,
+          left: `${isDesktop ? "4em" : "2em"}`,
+          right: `${isDesktop ? "4em" : "2em"}`,
+          bottom: `${isDesktop ? "4em" : "2em"}`,
           border: "0px solid #ccc",
           background: theme.colors.body,
           overflow: "auto",
@@ -70,8 +71,9 @@ export const GlobalModal = () => {
             theme.colors.body
           )}, url(${TMDB_IMG_BASE_URL}${content.backdrop_path})`,
           backgroundSize: "100%",
+          backgroundRepeat: "no-repeat",
           width: "100%",
-          height: "10rem",
+          height: `${isDesktop ? "32rem" : "10rem"}`,
           padding: 0,
         }}
       ></div>
