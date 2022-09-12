@@ -1,13 +1,22 @@
 import Modal from "react-modal";
 import { useGlobalModal } from "../../providers/useGlobalModal";
-import styled, { useTheme } from "styled-components";
+import { useTheme } from "styled-components";
 import { useState } from "react";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { deviceSizes } from "../../constants/devices";
+import { TMDB_IMG_BASE_URL } from "../../constants/apiUrls";
+
+const getImgLinearGradient = (color: string) => {
+  if ("#121620" === color) {
+    return "linear-gradient(to bottom, rgba(18, 22, 32, 0) 0%, rgba(18, 22, 32, 0.5) 59%, rgba(18, 22, 32, 1) 100%)";
+  }
+  if ("#f1f1f1" === color) {
+    return "linear-gradient(to bottom, rgba(241, 241, 241, 0) 0%, rgba(241, 241, 241, 0.5) 59%, rgba(241, 241, 241, 1) 100%)";
+  }
+};
 
 export const GlobalModal = () => {
-  const { closeModal, contentId, isModalOpen, openContentModalById } =
-    useGlobalModal();
+  const { closeModal, content, isModalOpen } = useGlobalModal();
   const [opacity, setOpacity] = useState(0);
   const theme = useTheme();
   const { windowWidth } = useWindowSize();
@@ -35,6 +44,7 @@ export const GlobalModal = () => {
           zIndex: 4,
           transition: "opacity 300ms ease-in-out, transform 500ms",
           opacity,
+          padding: 0,
         },
         content: {
           position: "absolute",
@@ -42,20 +52,29 @@ export const GlobalModal = () => {
           left: `${isDesktop ? "10rem" : "2rem"}`,
           right: `${isDesktop ? "10rem" : "2rem"}`,
           bottom: `${isDesktop ? "10rem" : "10rem"}`,
-          border: "1px solid #ccc",
+          border: "0px solid #ccc",
           background: theme.colors.body,
           overflow: "auto",
           WebkitOverflowScrolling: "touch",
-          borderRadius: "4px",
+          borderRadius: "1rem",
           outline: "none",
-          borderColor: theme.colors.body,
-          padding: "20px",
           transition: "opacity 500ms ease-in-out",
           opacity,
+          padding: 0,
         },
       }}
     >
-      <h1>sdfsdfdfs</h1>
+      <div
+        style={{
+          backgroundImage: `${getImgLinearGradient(
+            theme.colors.body
+          )}, url(${TMDB_IMG_BASE_URL}${content.backdrop_path})`,
+          backgroundSize: "100%",
+          width: "100%",
+          height: "10rem",
+          padding: 0,
+        }}
+      ></div>
     </Modal>
   ) : (
     <></>

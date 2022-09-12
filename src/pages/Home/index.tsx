@@ -15,7 +15,7 @@ import * as S from "./styles";
 
 export const HomePage = () => {
   const [current, setCurrent] = useState(0);
-  const { openContentModalById } = useGlobalModal();
+  const { openContentModal } = useGlobalModal();
 
   const { data: trending } = useQuery<ITrendingMovies[]>(["trending"], () =>
     NetflixService.getTrending()
@@ -93,7 +93,7 @@ export const HomePage = () => {
               }}
             >
               <MovieCard
-                onClick={() => openContentModalById(String(slide.id))}
+                onClick={() => openContentModal(slide)}
                 grade={String(slide.vote_average)}
                 title={slide.title ? slide.title : slide.name}
                 releaseDate={
@@ -118,7 +118,7 @@ export const HomePage = () => {
             >
               <MovieCard
                 // fazer o tratamento para tipo: MOVIE e TV dentro do modal
-                onClick={() => openContentModalById(String(slide.id))}
+                onClick={() => openContentModal(slide)}
                 grade={String(slide.vote_average)}
                 title={slide.title ? slide.title : slide.name}
                 releaseDate={

@@ -1,4 +1,5 @@
 import React from "react";
+import { ITrendingMovies } from "../types";
 
 export interface IModalProvider {
   children: React.ReactNode;
@@ -6,7 +7,7 @@ export interface IModalProvider {
 
 export interface IModalContext {
   isModalOpen: boolean;
-  openContentModalById: (id: string) => void;
+  openContentModal: (content: ITrendingMovies) => void;
   closeModal: () => void;
-  contentId: string;
+  content: ITrendingMovies;
 }

@@ -1,27 +1,29 @@
 import { createContext, useState } from "react";
+import { MovieAndTvShow } from "../constants/initialValues";
+import { ITrendingMovies } from "../types";
 import { IModalContext, IModalProvider } from "./types";
 
 export const ModalContext = createContext<IModalContext>({
   closeModal: () => {},
-  contentId: "",
+  content: MovieAndTvShow,
   isModalOpen: false,
-  openContentModalById: () => {},
+  openContentModal: () => {},
 });
 
 export const ModalProvider = ({ children }: IModalProvider) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [contentId, setContentId] = useState("");
+  const [content, setContent] = useState<ITrendingMovies>(MovieAndTvShow);
 
-  const openContentModalById = (id: string) => {
+  const openContentModal = (content: ITrendingMovies) => {
     setIsModalOpen(!isModalOpen);
-    setContentId(id);
+    setContent(content);
   };
 
   const closeModal = () => setIsModalOpen(!isModalOpen);
 
   return (
     <ModalContext.Provider
-      value={{ isModalOpen, openContentModalById, closeModal, contentId }}
+      value={{ isModalOpen, openContentModal, closeModal, content }}
     >
       {children}
     </ModalContext.Provider>
