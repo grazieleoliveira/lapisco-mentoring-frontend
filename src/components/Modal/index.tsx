@@ -49,10 +49,10 @@ export const GlobalModal = () => {
         content: {
           position: "absolute",
           //todo: ajeitar a responsividade disso aq
-          top: `${isDesktop ? "4em" : "2em"}`,
+          top: `${isDesktop ? "4em" : "10em"}`,
           left: `${isDesktop ? "4em" : "2em"}`,
           right: `${isDesktop ? "4em" : "2em"}`,
-          bottom: `${isDesktop ? "4em" : "2em"}`,
+          bottom: `${isDesktop ? "4em" : "10em"}`,
           border: "0px solid #ccc",
           background: theme.colors.body,
           overflow: "auto",
@@ -70,11 +70,12 @@ export const GlobalModal = () => {
           backgroundImage: `${getImgLinearGradient(
             theme.colors.body
           )}, url(${TMDB_IMG_BASE_URL}${content.backdrop_path})`,
-          backgroundSize: "100%",
+          backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          width: "100%",
-          height: `${isDesktop ? "32rem" : "10rem"}`,
+          height: "50%",
+
           padding: 0,
+          backgroundPosition: "center center",
         }}
       ></div>
     </Modal>
